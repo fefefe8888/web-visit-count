@@ -38,7 +38,7 @@ jobs:
       # Add --vulnerability-threshold and/or --compliance-threshold to this command to
       # fail builds based on the thresholds.
       # See twistcli documentation for more details.
-  # add any additional commands needed to test the image, push to a registry, etc.
+      # add any additional commands needed to test the image, push to a registry, etc.
 
 workflows:
   version: 2
