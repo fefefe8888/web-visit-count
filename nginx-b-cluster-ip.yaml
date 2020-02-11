@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-b-cluster-ip
+  namespace: my-nginx-b
+spec:
+  type: ClusterIP
+  selector:
+    component: nginx-b
+  ports:
+    - port: 80
+      targetPort: 80
