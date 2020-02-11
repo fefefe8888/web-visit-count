@@ -1,12 +1,21 @@
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: my-nginx-cluster-ip
+  name: my-nginx-deployment
   namespace: my-nginx
 spec:
-  type: ClusterIP
+  #replicas: 1
   selector:
-    component: nginx
-  ports:
-    - port: 80
-      targetPort: 80
+    matchLabels:
+      component: nginx
+  template:
+    metadata:
+      labels:
+        component: nginx
+        dev-team: dev1
+    spec:
+      containers:
+        - name: my-nginx
+          image: nginx:1.17.5
+          ports:
+            - containerPort: 80
