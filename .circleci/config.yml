@@ -5,11 +5,11 @@ orbs:
 
 jobs:
   docker_safe_build:
-    executor: pcs/compute
+    executor: devops_security/compute
     steps:
       - checkout
       - run: docker build -t fefefe8888/web-visit-count:$CIRCLE_BRANCH .
-      - pcs/scan_image:
+      - devops_security/scan_image:
           prisma_cloud_compute_password: prisma_cloud_compute_password
           prisma_cloud_compute_url: $prisma_cloud_compute_url
           prisma_cloud_compute_username: $prisma_cloud_compute_username
