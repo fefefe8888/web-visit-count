@@ -8,12 +8,12 @@ jobs:
     executor: devops_security/compute
     steps:
       - checkout
-      - run: docker build -t fefefe8888/web-visit-count:$CIRCLE_BRANCH .
+      - run: docker build -t fefefe8888/web-visit-count:$CIRCLE_BUILD_NUM .
       - devops_security/scan_image:
           prisma_cloud_compute_password: prisma_cloud_compute_password
           prisma_cloud_compute_url: $prisma_cloud_compute_url
           prisma_cloud_compute_username: $prisma_cloud_compute_username
-          prisma_cloud_scan_image: fefefe8888/web-visit-count:$CIRCLE_BRANCH
+          prisma_cloud_scan_image: fefefe8888/web-visit-count:$CIRCLE_BUILD_NUM
 
 workflows:
   scan:
