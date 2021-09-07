@@ -1,4 +1,4 @@
-FROM alpine:3.10.3
+FROM alpine:3.11.3
 
 RUN apk update
 RUN apk upgrade
@@ -11,4 +11,4 @@ COPY package.json .
 RUN npm install
 COPY index.js .
 
-CMD ["npm", "start"]
+ENTRYPOINT ["npm", "start"]
